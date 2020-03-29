@@ -1,7 +1,12 @@
 development:
   archivist:
     - archivist1@example.com
-
+  admin:
+    - dwalker@calstate.edu
+  sanmarcos:
+    - sanmarcos@example.com
+  fresno:
+    - fresno@example.com
 test:
   archivist:
     - archivist1@example.com
@@ -22,4 +27,5 @@ test:
 production:
   # Add roles for users here.
   admin:
-    - acollier@calstate.edu
+    - kcloud@calstate.edu
+    - dwalker@calstate.edu

@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Connects this user object to Hydra behaviors.
   include Hydra::User
+  # Connects this user object to Role-management behaviors.
+  include Hydra::RoleManagement::UserRoles
+
+
   # Connects this user object to Hyrax behaviors.
   include Hyrax::User
   include Hyrax::UserUsageStats
@@ -16,6 +20,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def preferred_locale
+    return nil;
+  end
 
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for

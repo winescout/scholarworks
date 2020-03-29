@@ -1,4 +1,10 @@
 terms:
+- id: https://creativecommons.org/publicdomain/mark/1.0/
+  term: "Public Domain Mark 1.0"
+  active: true
+- id: https://creativecommons.org/publicdomain/zero/1.0/
+  term: "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+  active: true
 - id: http://rightsstatements.org/vocab/InC/1.0/
   term: "In Copyright"
   active: true

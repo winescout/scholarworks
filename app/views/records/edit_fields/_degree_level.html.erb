@@ -1,0 +1,6 @@
+<%= f.input :degree_level, as: :select,
+  collection: DegreeLevelService.select_all_options,
+  include_blank: true,
+  #item_helper: method(:include_current_value),
+  input_html: { class: 'form-control', multiple: false }
+%>

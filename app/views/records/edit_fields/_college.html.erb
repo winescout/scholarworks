@@ -1,0 +1,6 @@
+<% campus = Hyrax::AdminSetService.new(controller).search_results(:deposit).first.title_or_label %>
+
+<%= f.input :college, as: :select,
+  collection: Hyrax::CollegesService.select_options(campus),
+  input_html: { class: 'form-control', multiple: true }
+%>

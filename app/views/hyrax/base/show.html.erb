@@ -1,0 +1,98 @@
+<% provide :page_title, @presenter.page_title %>
+
+<%= render 'shared/citations' %>
+
+<div class="row work-type">
+  <div itemscope itemtype="http://schema.org/CreativeWork" class="col-xs-12">
+
+    <!-- edit action -->
+    <div class="row">
+      <div class="col-sm-12 text-right">
+        <%= render "show_actions", presenter: @presenter %>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= render 'workflow_actions_widget', presenter: @presenter %>
+      <% if @presenter.universal_viewer? %>
+        <div class="col-sm-12">
+          <%= render 'representative_media', presenter: @presenter, viewer: true %>
+        </div>
+      <% end %>
+
+      <!-- sidebar -->
+      <div class="col-sm-3 text-center">
+        <%= render 'representative_media', presenter: @presenter, viewer: false unless @presenter.universal_viewer? %>
+        <%= render 'citations', presenter: @presenter %>
+        <%= render 'social_media' %>
+      </div>
+
+      <!-- main section -->
+      <div class="col-sm-9">
+
+        <!-- item type -->
+        <div class="csu-item-type">
+          <%= @presenter.resource_type.first %>
+        </div>
+
+        <!-- title -->
+        <div class="csu-item-title">
+          <% @presenter.title.each_with_index do |title, index| %>
+            <% if index == 0 %>
+              <h1><%= title %></h1>
+            <% else %>
+              <h2><%= title %></h2>
+            <% end %>
+          <% end %>
+        </div>
+
+        <!-- publication date -->
+        <div class="csu-item-date">
+            <%#= @presenter.date_submitted.first if @presenter.date_submitted.presence %>
+        </div>
+        <!--
+        <div>
+            <small class="text-muted"><% @presenter.permission_badge %> <%= @presenter.workflow.badge %></small>
+        </div>
+        -->
+
+        <div class="row">
+          <div class="col-md-9">
+
+            <!-- description -->
+
+            <div class="csu-item-description">
+              <%= render 'work_description', presenter: @presenter %>
+            </div>
+
+            <!-- other metadata -->
+
+            <div class="csu-item-metadata">
+              <%= render 'metadata', presenter: @presenter %>
+            </div>
+            <div class="csu-item-relationship">
+              <%= render 'relationships', presenter: @presenter %>
+            </div>
+
+          </div>
+          <div class="col-md-3">
+
+            <!-- campus logo -->
+            <%= render 'campus_logo', presenter: @presenter %>
+
+          </div>
+        </div>
+
+        <!-- files -->
+
+        <div class="csu-item-files">
+          <%= render 'items', presenter: @presenter %>
+        </div>
+      </div>
+
+      <%# TODO: we may consider adding these partials in the future %>
+      <%# = render 'sharing_with', presenter: @presenter %>
+      <%# = render 'user_activity', presenter: @presenter %>
+    </div>
+  </div>
+</div>

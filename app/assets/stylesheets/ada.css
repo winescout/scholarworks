@@ -1,0 +1,31 @@
+/*********************
+  ACCESSIBILITY FIXES
+ *********************/
+
+.dropdown-header {
+    color: #666;
+}
+.navbar-toggle.sr-only {
+    color: #fff;
+}
+.btn-danger, .appliedFilter .remove:hover, .appliedFilter .remove:active, span.appliedFilter .remove {
+    background-color: #B22222;
+}
+div.navbar-header button.navbar-toggle span.sr-only {
+    color: #fff;
+}
+#search-form-header label.sr-only {
+    color: #fff;
+}
+.label-success, td.status span.on {
+    background-color: #346734;
+}
+.pagination>.disabled>span, .pagination>.disabled>span:hover, .pagination>.disabled>span:focus, .pagination>.disabled>a, .pagination>.disabled>a:hover, .pagination>.disabled>a:focus {
+    color: #767676;
+}
+.label-info {
+    background-color: #0770BA;
+}
+.label-warning {
+    background-color: #CF092B;
+}

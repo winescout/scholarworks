@@ -1,0 +1,538 @@
+
+/************
+  CSU DESIGN
+ ************/
+
+@import url(https://fonts.googleapis.com/css?family=PT+Serif);
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+body {
+    margin-bottom: 0;
+}
+a {
+    color: #245c8f;
+}
+.container {
+    font-family: 'PT Serif', serif;
+    font-size: 17px;
+    line-height: 22px;
+}
+.container h1, .container h2, .container h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #050939;
+    font-weight: 500;
+}
+.page-homepage .modal-dialog {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.container h1 {
+    font-size: 32px;
+    margin-top: 0;
+}
+.container h2 {
+    font-size: 24px;
+}
+.container h3 {
+    font-size: 18px;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .breadcrumb {
+    background-color: transparent;
+}
+
+/* header */
+
+#masthead {
+    margin-bottom: 0;
+}
+@media (min-width: 1200px) {
+    #masthead .container-fluid {
+        width: 1170px;
+    }
+}
+.navbar-brand > img {
+    width: 300px;
+    height: auto;
+    margin-top: -5px;
+    display: block;
+}
+.navbar-inverse {
+    background-color: #222 !important;
+}
+.breadcrumb {
+    background-color: transparent;
+    border: none;
+}
+
+/* home page */
+
+.page-homepage .container {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+}
+.csu-home-container {
+    margin: auto;
+}
+@media (min-width: 1200px) {
+    .csu-home-container {
+        width: 1170px;
+    }
+}
+@media (max-width: 1200px) {
+    .csu-home-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+#csu-home-top {
+    background-color: #000;
+    overflow: hidden;
+}
+@media (min-width: 767px) {
+    #csu-home-top {
+        background-image: image-url("home/bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+#csu-home-top h1, #csu-home-top p {
+    color: #fff !important;
+}
+#csu-home-top h1 {
+    font-size: 52px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px #000;
+}
+.csu-home-tagline {
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px #000;
+}
+.csu-home-jumbotron {
+    max-width: 34em;
+    margin: 0 auto;
+    padding-top: 8%;
+    text-align: center;
+}
+.csu-search-wrapper {
+}
+.csu-search-wrapper input {
+    border-color: #050939;
+    border-right: none;
+}
+.csu-search-wrapper #search-submit-header {
+    border-color: #050939;
+    border-left: 1 px solid #ddd;
+}
+#search-submit-header {
+    color: #333;
+    background-color: #efef;
+    border: 1px solid #ccc;
+}
+.home-share-work {
+    margin-top: 50px;
+}
+.terms-of-use {
+    font-size: 90%;
+    display: block;
+    padding: 3px;
+    text-align: center;
+}
+.terms-of-use a, .terms-of-use a:hover, .terms-of-use a:visited {
+    color: #fff;
+}
+.csu-home-dark-bg {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.csu-home-collections {
+    padding: 20px;
+    margin-top: 110px;
+}
+.csu-home-collections h2 {
+    margin-top: 0px;
+}
+.csu-home-format a {
+    color: #fff;
+}
+.csu-home-format {
+    text-align: center;
+}
+.csu-home-format-name {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.csu-home-divider {
+    text-align: center;
+    overflow: hidden;
+}
+.csu-home-divider-inner {
+    display: inline-block;
+    position: relative;
+    right: -50%;
+}
+.csu-home-divider-inner img {
+    position: relative;
+    left: -50%;
+}
+.csu-home-campus-list {
+    margin: 0 auto;
+}
+#csu-home-campuses {
+    margin: 0;
+    padding: 20px;
+}
+#csu-home-campuses ul {
+    margin: 10px;
+}
+.csu-home-cali {
+    text-align: right;
+}
+@media (max-width: 1000px) {
+    .csu-home-cali {
+        display: none;
+    }
+}
+.csu-home-feature-lead {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 80%;
+    font-weight: 500;
+    color: #aaa;
+    margin-bottom: -18px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+}
+h2.csu-home-feature {
+    font-size: 160%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#csu-home-stats {
+    background-color: #2b2b2b;
+}
+@media (min-width: 767px) {
+    #csu-home-stats {
+        background-image: image-url("home/bg-poly-dark.png");
+        background-size: cover;
+        overflow: hidden;
+    }
+}
+#csu-home-stats .csu-home-container {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#csu-home-stats h2 {
+    color: #fff;
+    text-transform: uppercase;
+}
+.csu-home-counts {
+    margin-top: 50px;
+}
+.csu-home-count-number {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 250%;
+    font-weight: 500;
+    color: #fff;
+}
+.csu-home-count-type {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #aaa;
+    margin-top: 8px;
+    padding-bottom: 40px;
+}
+.csu-home-move {
+    margin-top: 20px;
+}
+.csu-home-move p {
+    color: #aaa;
+}
+.csu-home-move a {
+    color: #84bef2;
+}
+#csu-home-promo {
+    padding-top: 50px;
+}
+#csu-home-promo-features {
+    padding-top: 30px;
+}
+#csu-home-lower {
+    background-color: #f8f9f9;
+    margin: 0;
+    padding-bottom: 100px;
+    margin-bottom: -100px; /* this is for footer */
+}
+.service-item {
+    padding: 30px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.service-title {
+    margin-top: 0px;
+}
+.service-image {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.service-content {
+    text-align: center;
+}
+#csu-home-submissions {
+    background-size: 100%;
+    overflow: hidden;
+}
+.csu-recent-submissions {
+    padding: .75em;
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 100ms ease-out 0s;
+    transition: all 100ms ease-out 0s;
+}
+ul.csu-documents {
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 90%;
+    margin-top: 1.3em;
+    display: block;
+
+}
+@media (min-width: 768px) {
+    ul.csu-documents {
+        -webkit-column-count: 2;
+           -moz-column-count: 2;
+                column-count: 2;
+    }
+}
+ul.csu-documents li {
+    list-style-type: none;
+    margin-bottom: 2em;
+    display: block;
+    -webkit-column-break-inside: avoid;
+              page-break-inside: avoid;
+                   break-inside: avoid;
+}
+ul.csu-documents li a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 100%;
+}
+.csu-document-type {
+    font-weight: 500;
+    font-size: 80%;
+}
+.csu-document-description {
+    color: #666;
+}
+a.external:after {
+    font-family: 'FontAwesome';
+    content: " \f08e";
+    font-size: 75%;
+    color: #999;
+}
+
+/* content pages */
+
+.csu-page {
+    margin: 0 auto;
+    padding: 50px;
+    max-width: 1170px;
+}
+.csu-page p, .csu-page li {
+    line-height: 120%;
+    padding-bottom: 20px;
+}
+.csu-page h1 {
+    margin-bottom: 20px;
+}
+table.csu-contacts {
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+table.csu-contacts td, table.csu-contacts th {
+    padding: 8px;
+}
+table.csu-contacts th {
+    background-color: #ccc;
+}
+table.csu-contacts tr {
+    border-bottom: 1px solid #ccc;
+}
+table.csu-contacts tr:nth-child(even) {
+    background: #efefef;
+}
+table.csu-contacts tr:nth-child(odd) {
+    background: #fff;
+}
+
+table.csu-contacts {
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+table.csu-contacts td, table.csu-contacts th {
+    padding: 8px;
+}
+table.csu-contacts th {
+    background-color: #ccc;
+}
+table.csu-contacts tr {
+    border-bottom: 1px solid #ccc;
+}
+table.csu-contacts tr:nth-child(even) {
+    background: #efefef;
+}
+table.csu-contacts tr:nth-child(odd) {
+    background: #fff;
+}
+
+/* search results */
+
+.csu-search-box {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    background-color: #efefef;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+#appliedParams {
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+div.facets h3 {
+    font-size: 16px;
+}
+ul.catalog li.document {
+    font-size: 90%;
+}
+.search-result-wrapper {
+    border-bottom: none;
+    margin-left: 5px;
+}
+ul.catalog li.document div.csu-document-title {
+    font-size: 110%;
+}
+.csu-document-title {
+    overflow: hidden;
+}
+
+/* collection */
+
+.hyc-generic .hyc-logos img {
+    height: auto;
+    max-height: 200px;
+}
+
+.hyc-description {
+    text-align: left;
+    text-justify: auto;
+}
+
+/* item record */
+
+.csu-campus-info {
+    text-align: center;
+}
+.csu-campus-logo {
+    margin-bottom: 30px;
+}
+.work-type .representative-media {
+    margin-left: auto;
+    margin-right: auto;
+}
+.representative-media {
+    max-width: 100%;
+}
+.csu-item-type {
+    color: #646469;
+    text-transform: uppercase;
+    font-family: 'Arial', san-serif;
+    font-size: 80%;
+}
+.csu-item-date {
+    margin-bottom: .5em;
+}
+dl.work-show {
+    font-weight: 500;
+}
+dl.work-show ul li {
+    font-weight: normal;
+}
+#file_download {
+    display: block;
+    background: #2e74b2;
+    padding: 10px;
+    color: #fff;
+    margin-top: 20px;
+    font-family: 'Arial', san-serif;
+}
+#file_download:before {
+    font-family: 'FontAwesome';
+    content: "\f019 \00A0 \00A0";
+}
+
+/* social media */
+
+a.social-media-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    padding: 0;
+    margin: 0;
+    margin-top: 4px;
+    font-size: 26px;
+    line-height: 0;
+    color: #FFFFFF;
+    background-color: #888;
+    border-color: transparent;
+}
+a.social-media-link:hover, a.social-media-link:active, a.social-media-link:visited {
+    color: #fff;
+}
+a.facebook:hover {
+    background-color: #3b5998;
+}
+a.twitter:hover {
+    background-color: #00aced;
+}
+a.pinterest:hover {
+    background-color: #C92228;
+}
+a.tumblr:hover {
+    background-color: #35465c;
+}
+
+/* footer */
+
+footer {
+    background-color: #2f2f2f;
+    padding: 20px;
+    padding-bottom: 80px;
+    margin-top: 100px;
+}
+footer p, footer li {
+    color: #efefef;
+}
+footer h2 {
+    color: #fff;
+    font-size: 140%;
+}
+footer a, footer a:hover, footer a:visited {
+    color: #84bef2;
+}
+
+/** accessibility **/
+
+.label-success, td.status span.on {
+    background-color: #346734;
+}

@@ -1,30 +1,22 @@
 # Generated via
-#  `rails generate hyrax:work Publication`
-class Publication < ActiveFedora::Base
+#  `rails generate hyrax:work Dataset`
+class Dataset < ActiveFedora::Base
   include ::Hyrax::WorkBehavior
   include ::CsuMetadata
   before_create :update_fields
 
-  self.indexer = PublicationIndexer
+  self.indexer = DatasetIndexer
   # Change this to restrict which works can be added as a child.
   # self.valid_child_concerns = []
   validates :title, presence: { message: 'Your work must have a title.' }
 
-  self.human_readable_type = 'Publication'
+  self.human_readable_type = 'Research Data'
 
-  property :editor, predicate: ::RDF::Vocab::MARCRelators.edt do |index|
+  property :investigator, predicate: ::RDF::Vocab::MARCRelators.org do |index|
     index.as :stored_searchable, :facetable
   end
 
-  property :publication_status, predicate: ::RDF::Vocab::BIBO.status, multiple: false do |index|
-    index.as :stored_searchable, :facetable
-  end
-
-  property :resource_type_publication, predicate: ::RDF::Vocab::DC.type do |index|
-    index.as :stored_searchable, :facetable
-  end
-
-  property :university, predicate: ::RDF::Vocab::MARCRelators.dgg do |index|
+  property :resource_type_dataset, predicate: ::RDF::Vocab::DC.type do |index|
     index.as :stored_searchable, :facetable
   end
 
@@ -38,6 +30,6 @@ class Publication < ActiveFedora::Base
     super
 
     # assign main resource type from local resource type
-    self.resource_type = resource_type_publication
+    self.resource_type = resource_type_dataset
   end
 end

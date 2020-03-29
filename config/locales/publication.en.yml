@@ -5,4 +5,4 @@ en:
     select_type:
       publication:
         name:               "Publication"
-        description:        "Publication works"
+        description:        "Article, book, conference proceeeding, etc."

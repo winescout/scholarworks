@@ -34,16 +34,16 @@ class SolrDocument
     self[Solrizer.solr_name('handle')]
   end
 
+  def campus
+    self[Solrizer.solr_name('campus')]
+  end
+
   def college
     self[Solrizer.solr_name('college')]
   end
 
   def department
     self[Solrizer.solr_name('department')]
-  end
-
-  def university
-    self[Solrizer.solr_name('university')]
   end
 
   def degree_level
@@ -102,4 +102,19 @@ class SolrDocument
     self[Solrizer.solr_name('statement_of_responsibility')]
   end
 
+  def publication_status
+    self[Solrizer.solr_name('publication_status')]
+  end
+
+  def editor
+    self[Solrizer.solr_name('editor')]
+  end
+
+  def bibliographic_citation
+    self[Solrizer.solr_name('bibliographic_citation')]
+  end
+
+  def university
+    self[Solrizer.solr_name('university')]
+  end
 end

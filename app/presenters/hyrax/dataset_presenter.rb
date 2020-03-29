@@ -1,7 +1,7 @@
 # Generated via
-#  `rails generate hyrax:work Publication`
+#  `rails generate hyrax:work Dataset`
 module Hyrax
-  class PublicationPresenter < Hyrax::WorkShowPresenter
+  class DatasetPresenter < Hyrax::WorkShowPresenter
     delegate :date_submitted, :handle, :campus, :college, :department,
              :abstract, :geographical_area, :time_period, :date_available, :date_copyright,
              :date_issued, :sponsor, :alternative_title, :statement_of_responsibility, to: :solr_document

@@ -197,19 +197,35 @@ Hyrax.config do |config|
   # Location where BagIt files should be exported
   # config.bagit_dir = "tmp/descriptions"
 
+  # In production environments using Apache and/or Passenger,
+  # you may need to add configuration so that RIIIF can resolve URLs.
+  # See the RIIIF README (https://github.com/curationexperts/riiif#special-note-for-passenger-and-apache-users) for guidance on this.
+
+  # Use the Hyrax provided RIIIF server
+  config.iiif_image_server = true
+
+  # Set default dimensions for files
+  config.iiif_image_size_default = 100
+
+  # Returns a URL that resolves to an info.json file provided by a IIIF image server
+  config.iiif_info_url_builder = lambda do |file_id, base_url|
+    uri = Riiif::Engine.routes.url_helpers.info_url(file_id, host: base_url)
+    uri.sub(%r{/info\.json\Z}, '')
+  end
+
   # If browse-everything has been configured, load the configs.  Otherwise, set to nil.
   begin
     if defined? BrowseEverything
       config.browse_everything = BrowseEverything.config
     else
-      Rails.logger.warn "BrowseEverything is not installed"
+      Rails.logger.warn 'BrowseEverything is not installed'
     end
   rescue Errno::ENOENT
     config.browse_everything = nil
   end
 end
 
-Date::DATE_FORMATS[:standard] = "%m/%d/%Y"
+Date::DATE_FORMATS[:standard] = '%m/%d/%Y'
 
 Qa::Authorities::Local.register_subauthority('subjects', 'Qa::Authorities::Local::TableBasedAuthority')
 Qa::Authorities::Local.register_subauthority('languages', 'Qa::Authorities::Local::TableBasedAuthority')

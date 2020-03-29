@@ -23,4 +23,9 @@ class User < ApplicationRecord
   def to_s
     email
   end
+
+  #Mailboxer (for Notifications) needs the User object to respond to this method in order to send uses_emails
+  def mailboxer_email(_object)
+    email
+  end
 end

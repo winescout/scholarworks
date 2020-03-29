@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  mailboxer:
+    message_mailer:
+      subject_new: "ScholarWorks new message: %{subject}"
+      subject_reply: "ScholarWorks new reply: %{subject}"
+    notification_mailer:
+      subject: "Scholarworks new notification: %{subject}"

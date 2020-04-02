@@ -41,6 +41,12 @@ module CsuMetadata
       index.as :stored_searchable, :facetable
     end
 
+    property :description_note, predicate: ::RDF::Vocab::DC.description do |index|
+      index.as :stored_searchable, :facetable
+    end
+
+    property :doi, predicate: ::RDF::Vocab::DC.identifier, multiple: true
+
     property :extent, predicate: ::RDF::Vocab::DC.extent do |index|
       index.as :stored_searchable, :facetable
     end
@@ -53,6 +59,12 @@ module CsuMetadata
       index.as :stored_searchable, :facetable
     end
 
+    property :identifier_uri, predicate: ::RDF::URI.new('http://purl.org/dc/terms/identifier'), multiple: true
+
+    property :issn, predicate: ::RDF::Vocab::DC.identifier, multiple: true
+
+    property :isbn, predicate: ::RDF::Vocab::DC.identifier, multiple: true
+
     property :is_part_of, predicate: ::RDF::Vocab::DC.relation do |index|
       index.as :stored_searchable, :facetable
     end
@@ -60,6 +72,8 @@ module CsuMetadata
     property :license, predicate: ::RDF::Vocab::DC.license do |index|
       index.as :stored_searchable, :facetable
     end
+
+    property :oclcno, predicate: ::RDF::Vocab::DC.identifier, multiple: true
 
     property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder do |index|
       index.as :stored_searchable, :facetable

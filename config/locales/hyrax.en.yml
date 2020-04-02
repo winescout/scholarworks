@@ -1,44 +1,46 @@
+---
 en:
   blacklight:
     search:
       fields:
         facet:
-          admin_set_sim: Administrative Set
+          admin_set_sim: "Administrative Set"
           based_near_sim: Location
           creator_sim: Creator
           file_format_sim: Format
           generic_type_sim: Type
+          has_model_ssim: Collection
           keyword_sim: Keyword
           language_sim: Language
           publisher_sim: Publisher
           subject_sim: Subject
-          has_model_ssim: Collection
         index:
           based_near_tesim: Location
           contributor_tesim: Contributor
           creator_tesim: Creator
-          date_created_tesim: Date Created
-          date_modified_dtsi: Date Modified
-          date_uploaded_dtsi: Date Uploaded
+          date_created_tesim: "Date Created"
+          date_modified_dtsi: "Date Modified"
+          date_uploaded_dtsi: "Date Uploaded"
           description_tesim: Description
-          file_format_tesim: File Format
+          file_format_tesim: "File Format"
+          has_model_ssim: Collection
           identifier_tesim: Identifier
           keyword_tesim: Keyword
           language_tesim: Language
           publisher_tesim: Publisher
           rights_tesim: Rights
           subject_tesim: Subject
-          has_model_ssim: Collection
         show:
-          admin_set: 'Administrative Set'
+          admin_set: "Administrative Set"
           based_near_tesim: Location
           contributor_tesim: Contributor
           creator_tesim: Creator
-          date_created_tesim: Date Created
-          date_modified_dtsi: Date Modified
-          date_uploaded_dtsi: Date Uploaded
+          date_created_tesim: "Date Created"
+          date_modified_dtsi: "Date Modified"
+          date_uploaded_dtsi: "Date Uploaded"
           description_tesim: Description
-          file_format_tesim: File Format
+          file_format_tesim: "File Format"
+          has_model_ssim: Collection
           identifier_tesim: Identifier
           keyword_tesim: Keyword
           language_tesim: Language
@@ -46,15 +48,83 @@ en:
           rights_tesim: Rights
           subject_tesim: Subject
           title_tesim: Title
-          has_model_ssim: Collection
   hyrax:
-    product_name:           "ScholarWorks"
-    product_twitter_handle: "@csuscholarworks"
-    institution_name:       "Cal State"
-    institution_name_full:  "California State University"
-    account_name:           "My Institution Account Id"
+    account_name: "My Institution Account Id"
     directory:
-      suffix:               "@calstate.edu"
+      suffix: "@calstate.edu"
     footer:
-      copyright_html: "<strong>Copyright &copy; 2017 Samvera</strong> Licensed under the Apache License, Version 2.0"
-      service_html: A service of <a href="http://samvera.org/" class="navbar-link" target="_blank">Samvera</a>.
+      copyright_html: "<strong>Copyright © 2017 Samvera</strong> Licensed under the Apache License, Version 2.0"
+      service_html: "A service of <a href=\"http://samvera.org/\" class=\"navbar-link\" target=\"_blank\">Samvera</a>."
+    institution_name: "Cal State"
+    institution_name_full: "California State University"
+    product_name: ScholarWorks
+    product_twitter_handle: "@csuscholarworks"
+  simple_form:
+    hints:
+      defaults:
+        abstract: "Description of the work. Examples include abstracts of a paper, a summary of a report or dataset, or any additional notes describing the content of the work."
+        advisor: "Enter research advisor in last name, first name order, i.e. Smith, John E."
+        alternative_title: "Use for translations or cases where a user may search for another version of the title (i.e. Places to see in SF could have an alternative title of Places to see in San Francisco).  Capitalize the first word and any proper nouns."
+        author: "The person or organization who created the work.  Personal names should be entered with the last name first (e.g. Smith, John E., or Smith, Mary E. Junior, Associated Students of San Francisco State University).  If there are multiple authors, use the “Add another Creator” option for each additional author."
+        based_near: "A place name related to the work, such as its site of publication, or the city, state, or country the work contents are about. Calls upon the <a href='http://www.geonames.org'>GeoNames web service</a>."
+        bibliographic_citation: "Bibliographic reference information for the resource. E.g., volume, issue, page range."
+        college: "The college or school within the university to which the creator of the work is affiliated. Use Ctrl or Command key to select more than one for interdisciplinary works."
+        committee_member: "Enter committee members in last name, first name order, i.e. 'Smith, Jane E.' To enter multiple names, select Add another Committee Member."
+        contributor: "A person or group you want to recognize for playing a role in the creation of the work, but not the primary role."
+        creator: "The person or organization who created the work.  Personal names should be entered with the last name first (e.g. Smith, John E., or Smith, Mary E. Junior, Associated Students of San Francisco State University).  If there are multiple authors, use the “Add another Creator” option for each additional author."
+        date_copyright: "Date of copyright, enter in YYYY format, e.g. 2019."
+        date_created: "The date on which the work was created."
+        date_issued: "Date of publication. If work is not published, then record the date deposited in ScholarWorks. Enter all known information following the YYYY-MM-DD format. Record at minimum the year (i.e. 2019)."
+        date_published: "Date of publication. If work is not published, then record the date deposited in ScholarWorks. Enter all known information following the YYYY-MM-DD format. Record at minimum the year (i.e. 2019)."
+        degree_level: "Select from the drop-down menu."
+        degree_name: "The name of the degree awarded as a result of the resource."
+        department: "Use Ctrl or Command key to select more than one for interdisciplinary works. If your department is not represented in this list, please email your <a href='https://scholarworks.calstate.edu/about'>ScholarWorks administrator</a>."
+        description: "Description of the work. Examples include abstracts of a paper, a summary of a report or dataset, or any additional notes describing the content of the work."
+        description_note: "FOR LIBRARY USE ONLY."
+        doi: "The unique Digital Object Identifier (DOI) identifying the work."
+        editor: "A person who is in charge of and determines the final content of a text, particularly a newspaper or magazine."
+        identifier: "A unique handle identifying the work. An example would be a DOI for a journal article, or an ISBN or OCLC number for a book."
+        identifier_uri: "A persistent URI providing access to a record."
+        isbn: "The International Standard Book Number (ISBN) of the work."
+        issn: "The International Standard Serial Number (ISSN) for a continuing resource, including newspapers, journals, magazines, and periodicals."
+        geographical_area: "The spatial region reflected in the resource."
+        granting_institution: "The university granting the degree."
+        keyword: "Enter words or phrases to describe what the work is about.  Examples can include things like 20th century Art, Victorian Literature, Rabbits."
+        language: "The language(s) of the work."
+        license: "Licensing and distribution information governing access to the work. Select from the provided drop-down list."
+        oclcno: "The OCLC record number for a work."
+        publisher: "The institution responsible for publishing this work, i.e. San Francisco State University. Do not use abbreviations."
+        publication_status: "Choose one from the list."
+        related_url: "A link to a website or other specific content (audio, video, PDF document) related to the work. An example is the URL of a research project from which the work was derived."
+        resource_type: "Pre-defined categories to describe the type of content being uploaded, such as \"article\" or \"dataset.\"  More than one type may be selected."
+        resource_type_thesis: "Choose one from the list."
+        resource_type_dataset: "Choose one from the list."
+        resource_type_educational_resource: "Choose one from the list."
+        resource_type_publication: "Choose one from the list."
+        rights_holder: "A person, family, or organization who owns any one of the exclusive rights of copyright in a work, including the rights to reproduce, create derivatives, distribute copies, perform and/or display publicly. Personal names should be entered “Last name, First name.”"
+        rights_note: "A free-text rights statement describing a resource. This may be a local description which extends upon the rights statement (above) or other descriptive terms."
+        rights_statement: "The underlying rights status of the work."
+        rights_uri: "A free-text rights statement describing a resource. This should be a URI to a resource that offers descriptive terms of use."
+        sponsor: "A person or organization sponsoring some aspect of a resource, e.g., funding for research, or the granting agency. Include grant ID if applicable, e.g. National Science Foundation (NSF 1829670)"
+        subject: "Headings or index terms describing what the work is about. Start typing to choose from controlled vocabulary, or enter any applicable keyword."
+        title: "Enter the main title of the work. Example: Places to see in San Francisco.  Capitalize the first word and any proper nouns."
+        time_period: "The temporal extent reflected in the resource."
+    labels:
+      defaults:
+        creator: Author
+        committee_member: Committee member(s)
+        description_note: Description Note
+        doi: DOI
+        identifier: Other identifier
+        identifier_uri: Identifier URI
+        isbn: ISBN
+        issn: ISSN
+        oclcno: OCLC no.
+        resource_type_thesis: Type of Work
+        resource_type_dataset: Type of Work
+        resource_type_educational_resource: Type of Work
+        resource_type_publication: Type of Work
+        rights_holder: Rights Holder
+        rights_statement: Rights Statement
+        rights_note: Rights Note
+        rights_uri: Rights URI

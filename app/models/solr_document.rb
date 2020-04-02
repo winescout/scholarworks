@@ -114,7 +114,7 @@ class SolrDocument
     self[Solrizer.solr_name('bibliographic_citation')]
   end
 
-  def university
-    self[Solrizer.solr_name('university')]
+  def granting_institution
+    self[Solrizer.solr_name('granting_institution')]
   end
 end

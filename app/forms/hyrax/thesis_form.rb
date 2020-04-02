@@ -6,26 +6,28 @@ module Hyrax
     self.terms += [:resource_type_thesis, :date_submitted, :handle, :college,
       :department, :degree_level, :degree_name, :advisor, :committee_member,
       :date_issued, :alternative_title, :subject, :extent, :publisher, :time_period,
-      :geographical_area, :date_copyright, :date_available, :identifier, :university,
-      :rights_note, :rights_uri, :rights_holder]
+      :geographical_area, :date_copyright, :date_available, :identifier, :granting_institution,
+      :rights_note, :rights_uri, :rights_holder, :doi, :oclcno, :issn, :isbn, :identifier_uri,
+      :bibliographic_citation, :description_note, :sponsor]
 
     self.terms -= [:contributor, :license, :publisher, :date_created, :date_available,
                    :date_copyright, :date_submitted,
-                   :location, :related_url, :source, :handle, :based_near]
+                   :location, :related_url, :source, :handle, :based_near, :keyword, :extent,
+                   :sponsor, :license]
 
-    self.required_fields += [:resource_type_thesis, :description]
+    self.required_fields += [:creator, :title, :description, :resource_type_thesis]
 
-    self.required_fields -= [:rights_statement, :keyword]
+    self.required_fields -= [:rights_statement, :keyword, :alternative_title, :date_issued]
 
     def primary_terms
-      [:creator, :title, :alternative_title, :description, :resource_type_thesis]
+      [:creator, :title, :description, :resource_type_thesis]
     end
 
     def secondary_terms
-      [:advisor, :committee_member, :publisher, :college, :department, :degree_level, :degree_name,
-      :date_issued, :extent, :keyword, :subject, :language, :rights_note,
-      :rights_uri, :rights_statement, :rights_holder,
-       :time_period, :geographical_area, :identifier, :university]
+      [:alternative_title, :advisor, :committee_member, :publisher, :college, :department, :degree_level, :degree_name,
+       :date_issued, :subject, :language, :rights_statement, :rights_holder, :rights_uri, :rights_note,
+       :time_period, :geographical_area, :doi, :isbn, :issn, :oclcno, :identifier, :identifier_uri,
+       :granting_institution, :bibliographic_citation, :description_note]
     end
   end
 end

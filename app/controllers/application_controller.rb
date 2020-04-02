@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   include Hyrax::ThemedLayoutController
   with_themed_layout '1_column'
 
-
   protect_from_forgery with: :exception
+  skip_after_action :discard_flash_if_xhr # 2.1.0 upgrade
 end

@@ -3,6 +3,7 @@ en:
     search:
       fields:
         facet:
+          admin_set_sim: Administrative Set
           based_near_sim: Location
           creator_sim: Creator
           file_format_sim: Format
@@ -11,6 +12,7 @@ en:
           language_sim: Language
           publisher_sim: Publisher
           subject_sim: Subject
+          has_model_ssim: Collection
         index:
           based_near_tesim: Location
           contributor_tesim: Contributor
@@ -26,7 +28,9 @@ en:
           publisher_tesim: Publisher
           rights_tesim: Rights
           subject_tesim: Subject
+          has_model_ssim: Collection
         show:
+          admin_set: 'Administrative Set'
           based_near_tesim: Location
           contributor_tesim: Contributor
           creator_tesim: Creator
@@ -42,14 +46,15 @@ en:
           rights_tesim: Rights
           subject_tesim: Subject
           title_tesim: Title
+          has_model_ssim: Collection
   hyrax:
-    product_name:           "Hyrax"
-    product_twitter_handle: "@HydraSphere"
-    institution_name:       "Institution"
-    institution_name_full:  "The Institution Name"
+    product_name:           "ScholarWorks"
+    product_twitter_handle: "@csuscholarworks"
+    institution_name:       "Cal State"
+    institution_name_full:  "California State University"
     account_name:           "My Institution Account Id"
     directory:
-      suffix:               "@example.org"
+      suffix:               "@calstate.edu"
     footer:
       copyright_html: "<strong>Copyright &copy; 2017 Samvera</strong> Licensed under the Apache License, Version 2.0"
       service_html: A service of <a href="http://samvera.org/" class="navbar-link" target="_blank">Samvera</a>.

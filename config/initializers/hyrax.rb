@@ -59,13 +59,13 @@ Hyrax.config do |config|
   # config.citations = false
 
   # Where to store tempfiles, leave blank for the system temp directory (e.g. /tmp)
-  # config.temp_file_base = '/home/developer1'
+  # config.temp_file_base = Rails.root.join('data','tmp','files')
 
   # Hostpath to be used in Endnote exports
   # config.persistent_hostpath = 'http://localhost/files/'
 
   # If you have ffmpeg installed and want to transcode audio and video set to true
-  # config.enable_ffmpeg = false
+  config.enable_ffmpeg = true
 
   # Hyrax uses NOIDs for files and collections instead of Fedora UUIDs
   # where NOID = 10-character string and UUID = 32-character string w/ hyphens
@@ -85,9 +85,10 @@ Hyrax.config do |config|
 
   # Path to the file characterization tool
   config.fits_path = "/usr/local/fits/fits.sh"
+  #config.fits_path = "/usr/local/bin/fits"
 
   # Path to the file derivatives creation tool
-  # config.libreoffice_path = "soffice"
+  config.libreoffice_path = "/usr/bin/soffice"
 
   # Option to enable/disable full text extraction from PDFs
   # Default is true, set to false to disable full text extraction
@@ -118,10 +119,10 @@ Hyrax.config do |config|
   # config.display_share_button_when_not_logged_in = true
 
   # The user who runs batch jobs. Update this if you aren't using emails
-  # config.batch_user_key = 'batchuser@example.com'
+  config.batch_user_key = 'batchuser'
 
   # The user who runs fixity check jobs. Update this if you aren't using emails
-  # config.audit_user_key = 'audituser@example.com'
+  config.audit_user_key = 'audituser'
   #
   # The banner image. Should be 5000px wide by 1000px tall
   # config.banner_image = 'https://cloud.githubusercontent.com/assets/92044/18370978/88ecac20-75f6-11e6-8399-6536640ef695.jpg'
@@ -130,14 +131,15 @@ Hyrax.config do |config|
   # These must be lambdas that return a Pathname. Can be configured separately
   #  config.upload_path = ->() { Rails.root + 'tmp' + 'uploads' }
   #  config.cache_path = ->() { Rails.root + 'tmp' + 'uploads' + 'cache' }
-  config.upload_path = ->() {'/data/tmp/uploads'}
-  config.cache_path = ->() {'/data/tmp/cache'}
+  config.upload_path = -> () { '/data/tmp/uploads' }
+  config.cache_path = -> () { '/data/tmp/cache' }
 
   # Location on local file system where derivatives will be stored
   # If you use a multi-server architecture, this MUST be a shared volume
   # config.derivatives_path = Rails.root.join('tmp', 'derivatives')
   config.derivatives_path = '/data/derivatives'
-  
+  # config.derivatives_path = Rails.root.join + 'data' + 'derivatives'
+
   # Should schema.org microdata be displayed?
   # config.display_microdata = true
 
@@ -148,7 +150,8 @@ Hyrax.config do |config|
   # Location on local file system where uploaded files will be staged
   # prior to being ingested into the repository or having derivatives generated.
   # If you use a multi-server architecture, this MUST be a shared volume.
-  # config.working_path = Rails.root.join( 'tmp', 'uploads')
+  config.working_path = '/data/tmp/uploads'
+  #config.working_path = Rails.root.join + 'data' + 'tmp' + 'working'
 
   # Should the media display partial render a download link?
   # config.display_media_download_link = true
@@ -167,13 +170,13 @@ Hyrax.config do |config|
   # config.owner_permission_levels = { "Edit Access" => "edit" }
 
   # Path to the ffmpeg tool
-  # config.ffmpeg_path = 'ffmpeg'
+  config.ffmpeg_path = '/usr/bin/ffmpeg'
 
   # Max length of FITS messages to display in UI
   # config.fits_message_length = 5
 
   # ActiveJob queue to handle ingest-like jobs
-  # config.ingest_queue_name = :default
+  config.ingest_queue_name = :ingest
 
   ## Attributes for the lock manager which ensures a single process/thread is mutating a ore:Aggregation at once.
   # How many times to retry to acquire the lock before raising UnableToAcquireLockError

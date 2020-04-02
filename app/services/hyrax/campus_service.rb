@@ -3,7 +3,13 @@ module Hyrax
 
     def self.get_campus_from_admin_set(admin_set_name)
 
-      campuses = ["Bakersfield", "Chancellor", "Channel Islands", "Chico", "Dominguez Hills", "East Bay", "Fresno", "Fullerton", "Humboldt", "Long Beach", "Los Angeles", "Maritime", "Monterey Bay", "Moss Landing", "Northridge", "Pomona", "Sacramento", "San Bernardino", "San Diego", "San Francisco", "San Jose", "San Luis Obispo", "San Marcos", "Sonoma", "Stanislaus"]
+      campuses = ['Bakersfield', 'Chancellor', 'Channel Islands', 'Chico',
+                  'Dominguez Hills', 'East Bay', 'Fresno', 'Fullerton',
+                  'Humboldt', 'Long Beach', 'Los Angeles', 'Maritime',
+                  'Monterey Bay', 'Moss Landing', 'Northridge', 'Pomona',
+                  'Sacramento', 'San Bernardino', 'San Diego',
+                  'San Francisco', 'San Jose', 'San Luis Obispo',
+                  'San Marcos', 'Sonoma', 'Stanislaus']
 
       campuses.each do |campus|
         if admin_set_name.to_s.include?(campus.to_s)
@@ -11,6 +17,7 @@ module Hyrax
         end
       end
 
+      'Chancellor' # default if no group selected
     end
   end
 end

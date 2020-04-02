@@ -120,7 +120,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('degree_name', :stored_searchable), label: 'Degree Name'
     config.add_show_field solr_name('editor', :stored_searchable), label: 'Editor'
     config.add_show_field solr_name('bibliographic_citation', :stored_searchable), label: 'Citation'
-    config.add_show_field solr_name('university', :stored_searchable), label: 'University'
+    config.add_show_field solr_name('granting_institution', :stored_searchable), label: 'Granting Institution'
     #    config.add_index_field solr_name("rights_note")
     #    config.add_index_field solr_name("rights_uri")
 
@@ -315,8 +315,8 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('university') do |field|
-      solr_name = solr_name('university', :stored_searchable)
+    config.add_search_field('granting_institution') do |field|
+      solr_name = solr_name('granting_institution', :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name

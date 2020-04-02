@@ -6,6 +6,6 @@ module Hyrax
              :degree_level, :degree_name, :abstract, :advisor, :committee_member,
              :geographical_area, :time_period, :date_available, :date_copyright,
              :date_issued, :sponsor, :alternative_title, :statement_of_responsibility,
-             :university, to: :solr_document
+             :granting_institution, to: :solr_document
   end
 end

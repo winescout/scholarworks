@@ -7,18 +7,26 @@ module Hyrax
 
     self.terms += [:resource_type_educational_resource, :sponsor, :date_issued,
       :alternative_title, :handle, :college, :department, :contributor, :date_available,
-      :date_created, :identifier, :extent, :rights_note, :rights_uri, :rights_holder]
+      :date_created, :date_copyright, :identifier, :rights_note, :rights_uri, :rights_holder,
+      :doi, :oclcno, :issn, :isbn, :identifier_uri, :bibliographic_citation, :license, :description,
+      :extent, :description_note]
 
-    self.terms -= [:handle, :based_near, :source]
+    self.terms -= [:handle, :based_near, :source, :date_available, :date_created, :keyword, :extent]
 
-    self.required_fields += [:resource_type_educational_resource, :description]
+    self.required_fields += [:creator, :title, :description, :resource_type_educational_resource, :rights_statement]
+
+    self.required_fields -= [:keyword]
 
     def primary_terms
-      [:creator, :title, :alternative_title, :description,
-        :resource_type_educational_resource, :contributor, :publisher, :sponsor,
-        :college, :department, :date_issued,
-        :keyword, :subject, :language, :rights_statement, :rights_note, :rights_uri, :rights_holder,
-        :related_url,  :identifier, :extent]
+      [:creator, :title, :description,
+        :resource_type_educational_resource,
+        :license, :rights_statement, :rights_holder, :rights_uri, :rights_note]
+    end
+
+    def secondary_terms
+      [:alternative_title, :contributor, :publisher, :sponsor, :college, :department, :date_issued,
+        :subject, :language, :related_url, :doi, :isbn, :issn, :oclcno, :identifier, :identifier_uri,
+        :bibliographic_citation, :description_note]
     end
   end
 end

@@ -19,6 +19,16 @@ Rails.application.routes.draw do
   curation_concerns_basic_routes
   concern :exportable, Blacklight::Routes::Exportable.new
 
+  require 'sidekiq/web'
+
+  # For development use, uncomment and set gems to env
+  #mount Sidekiq::Web => '/sidekiq'
+
+  # For production use (block) of sidekiq webapp
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns :exportable
   end

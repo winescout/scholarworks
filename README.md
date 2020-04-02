@@ -1,3 +1,47 @@
+# Getting started
+
+Install Ruby, Java, Postgres, etc., [prerequisites from Hyrax](https://github.com/samvera/hyrax).
+
+Create a database and user using the development information in `config/database.yml`
+
+```
+git clone https://github.com/csuscholarworks/scholarworks.git
+cd scholarworks
+vi .solr_wrapper      // change solr version to 6.6.1, uncomment port
+bundle install
+rails db:migrate RAILS_ENV=development
+rails hydra:server
+```
+
+launch new ssh window
+
+```
+rails hyrax:default_admin_set:create
+rails hyrax:default_collection_types:create
+rails hyrax:migrate:add_collection_type_and_permissions_to_collections
+```
+
+Register a new user in Hyrax.
+Make that user an administrator.
+
+`rails c`
+```
+admin = Role.create(name: 'admin')
+admin.users << User.find_by_user_key('your_admin_users_email@fake.email.org')
+admin.save
+```
+
+Remove all depositors from the default admin set.
+
+## Campus-based submissions
+
+Create a new admin set and give it the name 'Stanislaus'. Add the group 'stanislaus' as Depositor. Create a new user 'test@stanislaus.edu'.
+
+That user should now be able to deposit to the Staniaus admin set and all submissions will use Stanislaus controlled vocabularies and have the campus field set to 'Stanislaus'.
+
+Other campuses and users can be created in this same way.  See `app\models\ability.rb` for mapping.
+
+
 # Branching
 
 ## Quick Legend
@@ -159,7 +203,7 @@ When development on the hotfix is complete, [the Lead] should merge changes into
 $ git checkout production                           // change to the production branch
 $ git merge --no-ff hotfix-id                       // forces creation of commit object during merge
 $ git tag -a <tag>                                  // tags the fix
-$ git push origin production --tags                     // push tag changes
+$ git push origin production --tags                 // push tag changes
 ```
 
 Merge changes into `master` so not to lose the hotfix and then delete the remote hotfix branch.

@@ -10,7 +10,7 @@ class Thesis < ActiveFedora::Base
   # self.valid_child_concerns = []
   validates :title, presence: { message: 'Your work must have a title.' }
 
-  self.human_readable_type = 'Thesis'
+  self.human_readable_type = 'Student Work'
 
   property :advisor, predicate: ::RDF::Vocab::MARCRelators.ths do |index|
     index.as :stored_searchable, :facetable
@@ -28,11 +28,11 @@ class Thesis < ActiveFedora::Base
     index.as :stored_searchable, :facetable
   end
 
-  property :resource_type_thesis, predicate: ::RDF::Vocab::DC.type do |index|
+  property :granting_institution, predicate: ::RDF::Vocab::MARCRelators.uvp do |index|
     index.as :stored_searchable, :facetable
   end
 
-  property :university, predicate: ::RDF::Vocab::MARCRelators.dgg do |index|
+  property :resource_type_thesis, predicate: ::RDF::Vocab::DC.type do |index|
     index.as :stored_searchable, :facetable
   end
 

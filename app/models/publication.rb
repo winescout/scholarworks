@@ -24,10 +24,6 @@ class Publication < ActiveFedora::Base
     index.as :stored_searchable, :facetable
   end
 
-  property :university, predicate: ::RDF::Vocab::MARCRelators.dgg do |index|
-    index.as :stored_searchable, :facetable
-  end
-
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
   include ::Hyrax::BasicMetadata

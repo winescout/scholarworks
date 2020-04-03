@@ -156,6 +156,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.1.6)
     config (1.7.2)
       activesupport (>= 3.0)
@@ -823,6 +824,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  colorize
   config
   devise (>= 4.4.0)
   devise-guests (~> 0.6)
@@ -841,6 +843,7 @@ DEPENDENCIES
   rsolr (>= 1.0)
   rspec-rails
   rspec-sidekiq
+  rubyzip
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq

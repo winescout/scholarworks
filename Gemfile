@@ -84,3 +84,5 @@ end
 
 gem 'riiif', '~> 1.1'
 gem 'solargraph'
+gem 'colorize'
+gem 'rubyzip'

@@ -105,10 +105,10 @@ module CsuMetadata
   protected
 
   def update_fields
+    raise 'No admin set defined for this item.' if admin_set.nil?
 
     # assign campus name based on admin set
     campus = Hyrax::CampusService.get_campus_from_admin_set(admin_set.title.first.to_s)
     self.campus = [campus]
   end
-
 end

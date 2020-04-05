@@ -14,10 +14,11 @@ namespace :packager do
     @campus = args[:campus] or raise 'No campus provided.'
     source_file = args[:file] or raise 'No zip file provided.'
 
-    # config and logger
+    # config and loggers
     config_file = 'config/packager/' + @campus + '.yml'
     @config = OpenStruct.new(YAML.load_file(config_file))
     @log = Packager::Log.new(@config['output_level'])
+    @handle_report = File.open(@config['handle_report_file'], 'w')
 
     raise 'Must set campus name in config' unless @config['campus']
 
@@ -147,7 +148,7 @@ def create_work_and_files(file_dir, dom)
   @log.info 'Creating Hyrax work...'
   work = create_new_work(params)
 
-  if @config['metadata_only'] == true
+  if @config['metadata_only']
     @log.info 'Metadata only'
   else
     begin
@@ -158,16 +159,16 @@ def create_work_and_files(file_dir, dom)
       AttachFilesToWorkJob.perform_now(work, uploaded_files)
     rescue StandardError => e
       # if something went wrong while uploading the files
-      # destory the work, since we'll have to process it again
+      # destory the work, since we'll have to process it again later
       @log.error 'Error attaching files to work'
-      @log.erro 'Destroying work'
+      @log.error 'Destroying work'
       work.destory
       raise e
     end
   end
 
   # record this work in the handle log
-  handle_report.write("#{params['handle']},#{work.id}\n")
+  @handle_report.write("#{params['handle']},#{work.id}\n")
 
   # record the time it took
   end_time = Time.now.minus_with_coercion(start_time)
@@ -337,8 +338,4 @@ end
 def initialize_directory(dir)
   Dir.mkdir(dir) unless Dir.exist?(dir)
   dir
-end
-
-def handle_report
-  @handle_report ||= File.open('/data/tmp/MAIN_handle_report.txt', 'w')
 end

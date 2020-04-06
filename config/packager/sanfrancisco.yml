@@ -137,6 +137,7 @@ fields:
   degree_name:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='degree']"
+    type: Array
   #editor:
   #  xpath:
   #    - "/dim:field[@mdschema='dc'][@element='contributor'][@qualifier='editor']"

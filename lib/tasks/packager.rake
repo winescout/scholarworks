@@ -11,14 +11,14 @@ namespace :packager do
   task :aip, %i[campus file] => [:environment] do |_t, args|
 
     # error check
-    @campus = args[:campus] or raise 'No campus provided.'
+    campus = args[:campus] or raise 'No campus provided.'
     source_file = args[:file] or raise 'No zip file provided.'
 
     # config and loggers
-    config_file = 'config/packager/' + @campus + '.yml'
+    config_file = 'config/packager/' + campus + '.yml'
     @config = OpenStruct.new(YAML.load_file(config_file))
     @log = Packager::Log.new(@config['output_level'])
-    @handle_report = File.open(@config['handle_report_file'], 'w')
+    @handle_report = File.open(@config['handle_report'], 'w')
 
     raise 'Must set campus name in config' unless @config['campus']
 
@@ -155,7 +155,7 @@ def create_work_and_files(file_dir, dom)
       @log.info 'Getting uploaded files'
       uploaded_files = get_files_to_upload(file_dir, dom)
 
-      log.info 'Attaching file(s) to work job...'
+      @log.info 'Attaching file(s) to work job...'
       AttachFilesToWorkJob.perform_now(work, uploaded_files)
     rescue StandardError => e
       # if something went wrong while uploading the files

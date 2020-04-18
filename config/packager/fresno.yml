@@ -2,7 +2,7 @@
 campus: 'Fresno'
 work_type: "default"
 metadata_file: "mets.xml"
-depositor: kcloud@calstate.edu
+depositor: dwalker@calstate.edu
 input_dir: /data/exported/
 handle_report: /data/tmp/MAIN_handle_report.txt
 admin_set_id: 'v118rd525'
@@ -27,52 +27,62 @@ default_university: California State University, Fresno
 # values are value_mapped_to_resource_type: Work Type
 type_to_work_map:
   Thesis: Thesis
+  Theses: Thesis
   Dissertation: Thesis
+  Dissertations: Thesis
   Project: Thesis
   Graduate Project: Thesis
   Student Research: Thesis
   Newspaper: Publication
   Journal Issue: Publication
   Poster: Publication
+  Posters: Publication
   Report: Publication
   Preprint: Publication
   Technical Report: Publication
+  Poetry: Publication
   Working Paper: Publication
   Learning Object: EducationalResource
   Text: Publication
   Dataset: Dataset
   Abstracts: Thesis
+  Abstract: Thesis
   Agendas: Thesis
   Animations: Thesis
   Articles: Publication
+  Article: Publication
   Biographical Items: Publication
   Blogs: Publication
   Post-print: Publication
+  post-print: Publication
   Pre-print: Publication
   Book chapters: Publication
+  Book Chapter: Publication
   Book entry: Publication
   Books: Publication
-  #Budgets
-  #Catalogs
-  #Correction
+  Book: Publication
+  Budgets: Publication
+  Catalogs: Publication
   Conference materials: Publication
   Conference Papers: Publication
   Conference papers: Publication
   Conference proceedings: Publication
-  Dissertations: Thesis
+  Conference Proceeding: Publication
   Doctoral Projects: Thesis
   Documents: Publication
   Editorial Materials: Publication
+  Correction: Publication
   Essays: Publication
-  #Flyers
-  #Image
   Presentations: Publication
   Journals: Publication
+  Journal: Publication
   Letters: Publication
+  Letter: Publication
   Interviews: Publication
   Notes: Publication
   Other: EducationalResource
   Magazines: Publication
+  Magazine: Publication
   Memorandums: Publication
   Minutes: Publication
   News release: Publication
@@ -81,25 +91,30 @@ type_to_work_map:
   Panels: Publication
   Plans/Blueprints: Publication
   Proceedings: Publication
+  Procedures: Publication
+  Poems: Publication
+  Poem: Publication
+  Sports: Publication
   Speeches: Publication
-  #Poems:
-  #Poetry
   Policies: Publication
   Reviews: Publication
-  Posters: Publication
+  Review: Publication
   Presentations: Publication
+  Presentation: Publication
   Press releases: Publication
   Proposals: Publication
   Reports: Publication
   Resolutions: Publication
   Slides: Publication
   Speeches: Publication
-  #Sports
-  #Text
-  Theses: Thesis
+  Social Networking Tool: Publication
   Transcripts: Publication
   Translations: Publication
-  Webinars: EducationalResource
+  Webinars: Publication
+  Image: Publication
+  Moving Image: Publication
+  Photographic Image: Publication
+  Video - Other: Publication
 
 DSpace COMMUNITY:
   desc_metadata_prefix: "//dim:dim[@dspaceType='COMMUNITY']"
@@ -123,11 +138,7 @@ DSpace ITEM:
 fields:
   description: # Thesis
     xpath:
-      - "/dim:field[@mdschema='dc'][@element='description'][not(@qualifier)]"
       - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='abstract']"
-      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='illustration']"
-      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='reference']"
-      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='tableofcontents']"
     type: Array
   advisor:
     xpath:
@@ -180,7 +191,7 @@ fields:
   date_copyright:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='date'][@qualifier='copyright']"
-    type: String
+    type: Array
   date_issued:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='date'][@qualifier='issued']"
@@ -189,10 +200,10 @@ fields:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='date'][@qualifier='updated']"
     type: String
-  date_published:
-    xpath:
-      - "/dim:field[@mdschema='dc'][@element='date'][@qualifier='published']"
-    type: String
+#  date_published:
+#    xpath:
+#      - "/dim:field[@mdschema='dc'][@element='date'][@qualifier='published']"
+#    type: String
   date_submitted: # Thesis
     xpath:
       - "/dim:field[@mdschema='dc'][@element='date'][not(@qualifier)]"
@@ -206,10 +217,17 @@ fields:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='degree'][not(@qualifier)]"
     type: Array
+  description_note:
+    xpath:
+      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='illustration']"
+      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='reference']"
+      - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='tableofcontents']"
+      - "/dim:field[@mdschema='dc'][@element='description'][not(@qualifier)]"
+      - "/dim:field[@mdschema='dc'][@element='relation'][@qualifier='hasformatof']"
+    type: Array
   department:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='contributor'][@qualifier='department']"
-      - "/dim:field[@mdschema='dc'][@element='coverage'][@qualifier='sponsor']"
     type: Array
   editor:
     xpath:
@@ -240,17 +258,26 @@ fields:
   identifier:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='identifier'][not(@qualifier)]"
-      - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='isbn']"
-      - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='issn']"
       - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='other']"
       - "/dim:field[@mdschema='dc'][@element='subject'][@qualifier='lcc']"
       - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='coursenumber']"
-      - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='other']"
-      - "/dim:field[@mdschema='dc'][@element='format'][@qualifier='extent']"
+    type: Array
+  identifier_uri:
+    xpath:
+      - "/dim:field[@mdschema='dc'][@element='relation'][@qualifier='hasversion']"
     type: Array
   is_part_of:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='relation'][@qualifier='ispartofseries']"
+      - "/dim:field[@mdschema='dc'][@element='relation'][@qualifier='ispartof']"
+    type: Array
+  isbn:
+    xpath:
+      - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='isbn']"
+    type: Array
+  issn:
+    xpath:
+      - "/dim:field[@mdschema='dc'][@element='identifier'][@qualifier='issn']"
     type: Array
   keyword:
     xpath:
@@ -274,6 +301,7 @@ fields:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='publisher'][not(@qualifier)]"
       - "/dim:field[@mdschema='dc'][@element='issuer'][not(@qualifier)]"
+      - "/dim:field[@mdschema='dc'][@element='relation'][@qualifier='journal']"
     type: Array
   related_url:
     xpath:
@@ -283,16 +311,16 @@ fields:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='type'][not(@qualifier)]"
       - "/dim:field[@mdschema='dc'][@element='type'][@qualifier='genre']"
-      - "/dim:field[@mdschema='dc'][@element='genre'][not(@qualifier)]"
     type: Array
-  rights_statement:
-    xpath:
+#  rights_statement:
+#    xpath:
 #      - "/dim:field[@mdschema='dc'][@element='rights'][not(@qualifier)]"
 #      - "/dim:field[@mdschema='dc'][@element='rights'][@qualifier='usage']"
-    type: Array
+#    type: Array
   rights_holder:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='rights'][@qualifier='holder']"
+    type: Array
   rights_note:
     xpath:
       - "/dim:field[@mdschema='dc'][@element='rights'][not(@qualifier)]"
@@ -305,9 +333,10 @@ fields:
     type: Array
   sponsor: # Newspaper
     xpath:
-      - "/dim:field[@mdschema='dc'][@element='sponsor'][not(@qualifier)]"
+    #  - "/dim:field[@mdschema='dc'][@element='sponsor'][not(@qualifier)]"
       - "/dim:field[@mdschema='dc'][@element='contributor'][@qualifier='sponsor']"
       - "/dim:field[@mdschema='dc'][@element='description'][@qualifier='sponsorship']"
+      - "/dim:field[@mdschema='dc'][@element='coverage'][@qualifier='sponsor']"
     type: Array
   subject:
     xpath:

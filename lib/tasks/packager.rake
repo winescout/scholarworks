@@ -35,7 +35,15 @@ namespace :packager do
     sleep(3)
 
     # let's do it!
-    process_package(source_file)
+    if source_file == 'items'
+      Dir.foreach(@input_dir) do |filename|
+        next unless filename.include?('.zip') && filename.include?('ITEM')
+
+        process_package(filename)
+      end
+    else
+      process_package(source_file)
+    end
   end
 end
 

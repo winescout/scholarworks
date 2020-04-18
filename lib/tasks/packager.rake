@@ -216,6 +216,10 @@ def create_new_work(params)
 
   @log.info 'Creating a new ' + resource_type + ' with id:' + id
 
+  if @config['type_to_work_map'][resource_type].nil?
+    raise 'No mapping for ' + resource_type
+  end
+
   # create the actual work based on the mapped resource type
   model = Kernel.const_get(@config['type_to_work_map'][resource_type])
   work = model.new(id: id)
@@ -308,20 +312,31 @@ def collect_params(dom)
   params = Hash.new { |h, k| h[k] = [] }
 
   @config['fields'].each do |field|
-    next unless field[1].include? 'xpath'
+    field_name = field[0]
+    field_definition = field[1]
 
-    field[1]['xpath'].each do |current_xpath|
+    next unless field_definition.include? 'xpath'
+
+    # definition checks
+    if field_definition['xpath'].nil?
+      raise '"' + field_name + '" defined with empty xpath'
+    end
+    if field_definition['type'].nil?
+      raise '"' + field_name + '" missing type'
+    end
+
+    field_definition['xpath'].each do |current_xpath|
       desc_metadata_prefix = @config['DSpace ITEM']['desc_metadata_prefix']
       namespace = @config['DSpace ITEM']['namespace']
       metadata = dom.xpath(desc_metadata_prefix + current_xpath, namespace)
 
       unless metadata.empty?
-        if field[1]['type'].include? 'Array'
+        if field_definition['type'].include? 'Array'
           metadata.each do |node|
-            params[field[0]] << node.text
+            params[field_name] << node.text.squish
           end
         else
-          params[field[0]] = metadata.text
+          params[field_name] = metadata.text.squish
         end
       end
     end

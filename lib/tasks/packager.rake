@@ -159,20 +159,11 @@ def create_work_and_files(file_dir, dom)
   if @config['metadata_only']
     @log.info 'Metadata only'
   else
-    begin
-      @log.info 'Getting uploaded files'
-      uploaded_files = get_files_to_upload(file_dir, dom)
+    @log.info 'Getting uploaded files'
+    uploaded_files = get_files_to_upload(file_dir, dom)
 
-      @log.info 'Attaching file(s) to work job...'
-      AttachFilesToWorkJob.perform_now(work, uploaded_files)
-    rescue StandardError => e
-      # if something went wrong while uploading the files
-      # destory the work, since we'll have to process it again later
-      @log.error 'Error attaching files to work'
-      @log.error 'Destroying work'
-      work.destory
-      raise e
-    end
+    @log.info 'Attaching file(s) to work job...'
+    AttachFilesToWorkJob.perform_now(work, uploaded_files)
   end
 
   # record this work in the handle log

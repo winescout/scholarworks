@@ -219,8 +219,15 @@ def create_new_work(params)
     raise 'No mapping for ' + resource_type
   end
 
+  model_name = @config['type_to_work_map'][resource_type]
+
+  # student research but with a label that is otherwise Publication
+  if params['degree_level'] || params['advisor']
+    model_name = 'Thesis'
+  end
+
   # create the actual work based on the mapped resource type
-  model = Kernel.const_get(@config['type_to_work_map'][resource_type])
+  model = Kernel.const_get(model_name)
   work = model.new(id: id)
   work.update(params)
   work.apply_depositor_metadata(depositor.user_key)
